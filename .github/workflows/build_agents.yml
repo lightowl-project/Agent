@@ -30,9 +30,6 @@ jobs:
           ./build.sh
           cd ../
 
-          mv ./lightowl-agent-ubuntu.run ./to_upload
-          mv ./lightowl-agent-debian.run ./to_upload
-
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
