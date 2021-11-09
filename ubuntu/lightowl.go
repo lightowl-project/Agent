@@ -75,12 +75,12 @@ func read_local_file() (string) {
 }
 
 func check_telegraf_status() {
-	cmd := exec.Command("/usr/bin/sudo", "/usr/bin/systemctl", "check", "telegraf")
+	cmd := exec.Command("/usr/bin/sudo", "/bin/systemctl", "check", "telegraf")
 	_, err := cmd.CombinedOutput()
 	
 	if err != nil {
 		fmt.Println("Telegraf isn't running. Starting it")
-		cmd := exec.Command("/usr/bin/sudo", "/usr/bin/systemctl", "start", "telegraf")
+		cmd := exec.Command("/usr/bin/sudo", "/bin/systemctl", "start", "telegraf")
 		err = cmd.Run()
 		fmt.Println(err)
 		check(err)
@@ -104,7 +104,7 @@ func main() {
 		check(err)
 
 		fmt.Println("Restarting Telegraf")
-		cmd := exec.Command("/usr/bin/sudo", "/usr/bin/systemctl", "restart", "telegraf")
+		cmd := exec.Command("/usr/bin/sudo", "/bin/systemctl", "restart", "telegraf")
 	    err = cmd.Run()
 		check(err)
 	} else {
