@@ -12,4 +12,5 @@ cd ../program
 env GOOS=linux GOARCH=amd64 go build -o /tmp/ubuntu/etc/lightowl/lightowl ./lightowl.go
 
 cd /tmp/ubuntu/
+chmod +x ./installer.sh
 /usr/bin/makeself . /tmp/to_upload/lightowl-agent-ubuntu.run "LightOwl Agent Installer" ./installer.sh
