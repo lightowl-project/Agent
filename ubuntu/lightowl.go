@@ -44,7 +44,7 @@ func get_lightowl_config(server string, agent_token string, agent_id string) (st
 	caCertPool.AppendCertsFromPEM(caCert)
 	
 	t := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: false, RootCAs: caCertPool},
 	}
 	
 	client := http.Client{Transport: t}
