@@ -2,16 +2,14 @@
 
 /bin/echo "Creating Agent for Ubuntu"
 
-/bin/mkdir ./tmp/
-/bin/cp -r lightowl/* ./tmp/
-/bin/cp telegraf.deb ./tmp/
-env GOOS=linux GOARCH=amd64 go build -o ./tmp/etc/lightowl/lightowl ./lightowl.go
 
-/bin/cp installer.sh ./tmp/
-cd ./tmp/
+/bin/mkdir /tmp/ubuntu/
+/bin/cp -r lightowl/* /tmp/ubuntu/
+/bin/cp telegraf.deb /tmp/ubuntu/
+/bin/cp installer.sh /tmp/ubuntu/
 
-ls -la ./etc/lightowl
+cd ../program
+env GOOS=linux GOARCH=amd64 go build -o /tmp/ubuntu/etc/lightowl/lightowl ./lightowl.go
 
-/usr/bin/makeself . ../../lightowl-agent-ubuntu.run "LightOwl Agent Installer" ./installer.sh
-
-ls -la ../../
+cd /tmp/ubuntu/
+/usr/bin/makeself . /tmp/to_upload/lightowl-agent-ubuntu.run "LightOwl Agent Installer" ./installer.sh

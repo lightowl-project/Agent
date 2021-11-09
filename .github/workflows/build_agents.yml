@@ -17,12 +17,21 @@ jobs:
 
       - name: 🎉 Build
         run: |
-          mkdir ./to_upload
+          mkdir /tmp//to_upload
           sudo apt install makeself -y
+
+          # UBUNTU
           cd ./ubuntu/
           ./build.sh
           cd ../
+
+          # DEBIAN
+          cd ./debian/
+          ./build.sh
+          cd ../
+
           mv ./lightowl-agent-ubuntu.run ./to_upload
+          mv ./lightowl-agent-debian.run ./to_upload
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
@@ -31,26 +40,4 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PWD }}
           server-dir: www/wp-content/uploads/agents/
-          local-dir: ./to_upload/
-
-      # - name: release
-      #   uses: actions/create-release@v1
-      #   id: create_release
-      #   with:
-      #     draft: false
-      #     prerelease: false
-      #     release_name: ${{ steps.version.outputs.version }}
-      #     tag_name: ${{ github.ref }}
-      #     body_path: CHANGELOG.md
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
-
-      # - name: upload linux artifact
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ./lightowl-agent-ubuntu.run
-      #     asset_name: lightowl-agent-ubuntu.run
-      #     asset_content_type: application/gzip
+          local-dir: /tmp/to_upload/
