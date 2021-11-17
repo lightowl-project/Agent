@@ -4,7 +4,7 @@
 
 /bin/mkdir /tmp/debian/
 /bin/cp -r lightowl/* /tmp/debian/
-/bin/cp ../program/telegraf/telegraf-ubuntu-debian.deb /tmp/debian/
+/bin/cp ../program/telegraf/telegraf-ubuntu-debian.deb /tmp/debian/telegraf.deb
 /bin/cp installer.sh /tmp/debian/
 
 cd ../program
