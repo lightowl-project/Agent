@@ -1,0 +1,6 @@
+lightowl    ALL=NOPASSWD: /bin/systemctl restart telegraf
+lightowl    ALL=NOPASSWD: /bin/systemctl stop telegraf
+lightowl    ALL=NOPASSWD: /bin/systemctl start telegraf
+lightowl    ALL=NOPASSWD: /bin/systemctl check telegraf
+lightowl    ALL=NOPASSWD: /etc/init.d/telegraf
+lightowl    ALL=NOPASSWD: /var/log/telegraf/telegraf.log
