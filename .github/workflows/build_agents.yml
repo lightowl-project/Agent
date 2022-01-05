@@ -2,7 +2,7 @@ name: Build Agents
 
 on:
   push:
-    branches: [release-*]
+    branches: [release-* windows_agent]
 
 jobs:
   build:
