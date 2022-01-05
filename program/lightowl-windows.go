@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	outfile, _ = os.Open("/var/log/lightowl/lightowl.log") // update path for your needs
+	outfile, _ = os.Open("C:\\Program Files\\lightowl\\lightowl.log") // update path for your needs
 	l          = log.New(outfile, "", 0)
 )
 
@@ -26,8 +26,8 @@ func check(e error) {
 	}
 }
 
-var LIGHTOWL_CONF_PATH string = "C:\\Program Files\\telegraf\\telegraf.d\\lightowl.conf"
-var SSL_CA_PATH string = "C:\\Program Files\\ssl\\lightowl\\ca.pem"
+var LIGHTOWL_CONF_PATH string = "C:\\Program Files\\telegraf-1.21.1\\telegraf.d\\lightowl.conf"
+var SSL_CA_PATH string = "C:\\Program Files\\lightowl\\ssl\\ca.pem"
 
 func get_lightowl_config(server string, agent_token string, agent_id string) string {
 	lightowl_server := fmt.Sprintf("%s/api/v1/agents/config/%s", server, agent_id)
@@ -75,13 +75,14 @@ func read_local_file() string {
 }
 
 func check_telegraf_status() {
-	cmd := exec.Command("/usr/bin/sudo", "/bin/systemctl", "check", "telegraf")
-	_, err := cmd.CombinedOutput()
+	cmd := exec.Command("powershell", "(Get-service telegraf).status")
+	output, _ := cmd.CombinedOutput()
 
-	if err != nil {
+	result := strings.TrimSpace(string(output))
+	if strings.EqualFold(result, "Stopped") {
 		fmt.Println("Telegraf isn't running. Starting it")
-		cmd := exec.Command("/usr/bin/sudo", "/bin/systemctl", "start", "telegraf")
-		err = cmd.Run()
+		cmd := exec.Command("C:\\Program Files\\telegraf-1.21.1\\telegraf.exe", "--service", "start")
+		err := cmd.Run()
 		fmt.Println(err)
 		check(err)
 	}
