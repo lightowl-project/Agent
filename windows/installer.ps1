@@ -1,10 +1,10 @@
-Expand-Archive ..\telegraf-1.21.1_windows_amd64.zip 'C:\Program Files\' -Force
+Expand-Archive ..\telegraf.zip 'C:\Program Files\' -Force
 
 $SERVER_ADDR = $args[0]
 $API_KEY = $args[1]
 
 Copy-Item -Force -Recurse '.\lightowl\etc\telegraf\telegraf.d' 'C:\Program Files\telegraf-1.21.1\'
-Copy-Item -Force -Recurse '.\lightowl\etc\lightowl' 'C:\Program Files\'
+Copy-Item -Force -Recurse '.\lightowl\etc\lightowl.exe' 'C:\Program Files\'
 
 $DATA = @{
     os = "Windows"
@@ -35,3 +35,7 @@ Copy-Item .\telegraf.conf 'C:\Program Files\telegraf-1.21.1\telegraf.conf' -Forc
 
 Remove-Item C:\Windows\Temp\lightowl.zip
 Remove-Item C:\Windows\Temp\lightowl
+
+Set-Location 'C:\Program File\telegraf-1.21.1\'
+.\telegraf.exe --service install --config "C:\Program Files\telegraf-1.21.1\telegraf.conf" --config-directory "C:\Program Files\telegraf-1.21.1\telegraf.d\lightowl.conf"
+.\telegraf.exe --service start

@@ -9,7 +9,7 @@
 
 cd ../program
 ls -la
-env GOOS=linux GOARCH=amd64 go build -o /tmp/debian//etc/lightowl/lightowl ./lightowl.go
+env GOOS=linux GOARCH=amd64 go build -o /tmp/debian//etc/lightowl/lightowl ./lightowl-linux.go
 
 
 cd /tmp/debian/
