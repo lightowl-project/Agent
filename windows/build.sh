@@ -11,4 +11,5 @@ cd ../program
 env GOOS=windows GOARCH=amd64 go build -o /tmp/windows/etc/lightowl/lightowl ./lightowl.go
 
 cd /tmp/
-/usr/bin/zip -e -r ./windows.zip ./windows
+ls -la windows/
+#/usr/bin/zip -e -r ./windows.zip ./windows
