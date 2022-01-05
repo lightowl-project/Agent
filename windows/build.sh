@@ -11,4 +11,4 @@ cd ../program
 env GOOS=windows GOARCH=amd64 go build -o /tmp/windows/etc/lightowl/lightowl ./lightowl.go
 
 cd /tmp/
-/usr/bin/zip -r /tmp/to_upload/windows.zip ./windows
+msi-packager ./to_upload/windows/ /tmp/to_upload/lightowl-agent-windows.msi -e installer.ps1 
