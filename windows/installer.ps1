@@ -3,6 +3,10 @@ Expand-Archive .\telegraf.zip 'C:\Program Files\' -Force
 $SERVER_ADDR = $args[0]
 $API_KEY = $args[1]
 
+$TELEGRAF_CONFIG = 'C\Program Files\telegraf/1.2\telegraf.conf'
+$TELEGRAF_LIGHTOWL_CONFIG = "C:\Program Files\telegraf-1.21.1\telegraf.d\lightowl.conf"
+$LIGHTOWL_BINARY = "C:\Program Files\lightowl\lightowl.exe"
+
 Copy-Item -Force -Recurse '.\etc\telegraf\telegraf.d' 'C:\Program Files\telegraf-1.21.1\'
 Copy-Item -Force -Recurse '.\etc\lightowl' 'C:\Program Files\'
 
@@ -30,12 +34,14 @@ Set-Location C:\Windows\Temp\lightowl
 Copy-Item .\.env 'C:\Program Files\lightowl\' -Force
 Copy-Item .\ca.pem 'C:\Program Files\lightowl\ssl\' -Force
 
-Copy-Item .\lightowl.conf 'C:\Program Files\telegraf-1.21.1\telegraf.d\' -Force
-Copy-Item .\telegraf.conf 'C:\Program Files\telegraf-1.21.1\telegraf.conf' -Force
+Copy-Item .\lightowl.conf $TELEGRAF_LIGHTOWL_CONFIG -Force
+Copy-Item .\telegraf.conf $TELEGRAF_CONFIG -Force
 
 Set-Location 'C:\Program Files\telegraf-1.21.1\'
 Remove-Item C:\Windows\Temp\lightowl.zip
 Remove-Item C:\Windows\Temp\lightowl -Recurse
 
-.\telegraf.exe --service install --config "C:\Program Files\telegraf-1.21.1\telegraf.conf" --config-directory "C:\Program Files\telegraf-1.21.1\telegraf.d\lightowl.conf"
+.\telegraf.exe --service install --config $TELEGRAF_CONFIG --config-directory $TELEGRAF_LIGHTOWL_CONFIG
 .\telegraf.exe --service start
+
+schtasks.exe /create /tn LightOwl /sc minute /tr cmd.exe /c $LIGHTOWL_BINARY
