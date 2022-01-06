@@ -44,4 +44,4 @@ Remove-Item C:\Windows\Temp\lightowl -Recurse
 .\telegraf.exe --service install --config $TELEGRAF_CONFIG --config-directory $TELEGRAF_LIGHTOWL_CONFIG
 .\telegraf.exe --service start
 
-schtasks.exe /create /tn LightOwl /sc minute /tr cmd.exe /c $LIGHTOWL_BINARY
+schtasks.exe /create /tn LightOwl /XML "C:\Program Files\lightowl\task.xml"
