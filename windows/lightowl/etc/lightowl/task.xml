@@ -7,13 +7,13 @@
         <StopAtDurationEnd>false</StopAtDurationEnd>
       </Repetition>
       <Enabled>true</Enabled>
+      <StartBoundary>2022-01-01T00:00:00+00:00</StartBoundary>
     </TimeTrigger>
   </Triggers>
   <Settings>
     <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
     <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
     <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
-    <StartBoundary>2022-01-01T00:00:00+00:00</StartBoundary>
     <AllowHardTerminate>true</AllowHardTerminate>
     <StartWhenAvailable>false</StartWhenAvailable>
     <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
