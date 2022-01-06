@@ -3,7 +3,7 @@ Expand-Archive .\telegraf.zip 'C:\Program Files\' -Force
 $SERVER_ADDR = $args[0]
 $API_KEY = $args[1]
 
-$TELEGRAF_CONFIG = 'C\Program Files\telegraf/1.2\telegraf.conf'
+$TELEGRAF_CONFIG = 'C\Program Files\telegraf-1.21.1\telegraf.conf'
 $TELEGRAF_LIGHTOWL_CONFIG = "C:\Program Files\telegraf-1.21.1\telegraf.d\lightowl.conf"
 $LIGHTOWL_BINARY = "C:\Program Files\lightowl\lightowl.exe"
 
