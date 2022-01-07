@@ -11,6 +11,8 @@ $LIGHTOWL_BINARY = "C:\Program Files\lightowl\lightowl.exe"
 Copy-Item -Force -Recurse '.\etc\telegraf\telegraf.d' 'C:\Program Files\telegraf-1.21.1\'
 Copy-Item -Force -Recurse '.\etc\lightowl' 'C:\Program Files\'
 
+Remove-Item -Force -Recurse .\etc
+
 $DATA = @{
     os = "Windows"
     hostname = $env:computername
