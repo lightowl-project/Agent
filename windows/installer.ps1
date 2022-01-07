@@ -1,3 +1,4 @@
+Expand-Archive .\etc.zip .\ -Force
 Expand-Archive .\telegraf.zip 'C:\Program Files\' -Force
 
 $SERVER_ADDR = $args[0]
