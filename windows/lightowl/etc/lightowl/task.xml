@@ -16,7 +16,7 @@
     <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
     <AllowHardTerminate>true</AllowHardTerminate>
     <StartWhenAvailable>false</StartWhenAvailable>
-    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <RunOnlyIfNetworkAvailable>true</RunOnlyIfNetworkAvailable>
     <IdleSettings>
       <StopOnIdleEnd>true</StopOnIdleEnd>
       <RestartOnIdle>false</RestartOnIdle>
@@ -33,7 +33,6 @@
     <Exec>
       <Command>"C:\Program Files\lightowl\lightowl.exe"</Command>
       <Arguments>/c /Q</Arguments>
-      <WorkingDirectory>cmd.exe</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>
