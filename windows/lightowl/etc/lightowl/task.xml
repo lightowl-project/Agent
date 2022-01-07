@@ -10,6 +10,12 @@
       <StartBoundary>2022-01-01T00:00:00+00:00</StartBoundary>
     </TimeTrigger>
   </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
   <Settings>
     <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
     <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
