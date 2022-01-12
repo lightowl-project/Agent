@@ -46,5 +46,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PWD }}
-          server-dir: www/wp-content/uploads/agents/$version/
+          server-dir: www/wp-content/uploads/agents/$VERSION/
           local-dir: /tmp/to_upload/
