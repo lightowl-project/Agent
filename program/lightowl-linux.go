@@ -152,9 +152,8 @@ func send_installed_packages(server string, agent_token string, agent_id string)
 	check(err)
 
 	responseData, err := ioutil.ReadAll(response.Body)
+	_ = responseData
 	check(err)
-
-	fmt.Println(string(responseData))
 
 	if response.StatusCode != 200 {
 		fmt.Println(response.StatusCode)

@@ -72,6 +72,10 @@ cd /
 /bin/chmod -R 550 /etc/ssl/lightowl
 /bin/chown -R lightowl:root /etc/telegraf
 
-/usr/bin/crontab -u lightowl -l
-/usr/bin/crontab -u lightowl -l; echo "* * * * * /etc/lightowl/lightowl" | awk '!x[$0]++' | /usr/bin/crontab -u lightowl -
+/usr/bin/crontab -u lightowl -l > crontab
+echo "* * * * * /etc/lightowl/lightowl" > crontab
+echo "0 8 * * * /etc/lightowl/lightowl packages" >> crontab
+/usr/bin/crontab -u lightowl crontab
+rm crontab
+
 /usr/sbin/service telegraf restart
