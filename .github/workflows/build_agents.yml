@@ -19,11 +19,6 @@ jobs:
         with:
           go-version: 1.17
 
-      - name: Set UP NodeJS
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-
       - name: 🎉 Build
         run: |
           mkdir /tmp//to_upload
@@ -51,5 +46,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PWD }}
-          server-dir: www/wp-content/uploads/agents/
+          server-dir: www/wp-content/uploads/agents/$version/
           local-dir: /tmp/to_upload/
