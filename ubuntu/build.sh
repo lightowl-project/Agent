@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version = $1
+version=$1
 /bin/echo "Creating Agent for Ubuntu"
 
 
