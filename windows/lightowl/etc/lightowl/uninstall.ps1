@@ -1,4 +1,5 @@
 schtasks.exe /delete /tn LightOwl /f
+schtasks.exe /delete /tn "LightOwl Packages" /f
 
 Set-Location 'C:\Program Files\telegraf-1.21.1'
 ./telegraf.exe --service stop
