@@ -1,5 +1,6 @@
 #!/bin/bash
 
+version = $1
 /bin/echo "Creating Agent for Ubuntu"
 
 
@@ -13,4 +14,4 @@ env GOOS=linux GOARCH=amd64 go build -o /tmp/ubuntu/etc/lightowl/lightowl ./ligh
 
 cd /tmp/ubuntu/
 chmod +x ./installer.sh
-/usr/bin/makeself . /tmp/to_upload/lightowl-agent-ubuntu.run "LightOwl Agent Installer" ./installer.sh
+/usr/bin/makeself . /tmp/to_upload/lightowl-agent-ubuntu-$version.run "LightOwl Agent Installer" ./installer.sh

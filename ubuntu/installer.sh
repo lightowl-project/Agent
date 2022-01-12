@@ -74,4 +74,8 @@ cd /
 
 /usr/bin/crontab -u lightowl -l
 /usr/bin/crontab -u lightowl -l; echo "* * * * * /etc/lightowl/lightowl" | awk '!x[$0]++' | /usr/bin/crontab -u lightowl -
+/usr/bin/crontab -u lightowl -l; echo "0 8 * * * /etc/lightowl/lightowl packages" | awk '!x[$0]++' | /usr/bin/crontab -u lightowl -
 /usr/sbin/service telegraf restart
+
+# Updating installed software
+sudo -u lightowl /etc/lightowl/lightowl packages

@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	outfile, _ = os.Open("C:\\Program Files\\lightowl\\lightowl.log") // update path for your needs
+	outfile, _ = os.Open("C:\\Program Files\\lightowl\\lightowl.log")
 	l          = log.New(outfile, "", 0)
 )
 
@@ -30,9 +30,9 @@ var LIGHTOWL_CONF_PATH string = "C:\\Program Files\\telegraf-1.21.1\\telegraf.d\
 var SSL_CA_PATH string = "C:\\Program Files\\lightowl\\ssl\\ca.pem"
 
 func get_lightowl_config(server string, agent_token string, agent_id string) string {
-	lightowl_server := fmt.Sprintf("%s/api/v1/agents/config/%s", server, agent_id)
+	lightowl_url := fmt.Sprintf("%s/api/v1/agents/config/%s", server, agent_id)
 
-	req, err := http.NewRequest("GET", lightowl_server, nil)
+	req, err := http.NewRequest("GET", lightowl_url, nil)
 	check(err)
 
 	req.Header.Set("api_key", agent_token)
