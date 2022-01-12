@@ -45,13 +45,11 @@ jobs:
           ./build.sh $VERSION
           cd ../
 
-          ls -la /tmp/to_upload/
-
-      # - name: 📂 Sync files
-      #   uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      #   with:
-      #     server: ${{ secrets.FTP_HOST }}
-      #     username: ${{ secrets.FTP_USER }}
-      #     password: ${{ secrets.FTP_PWD }}
-      #     server-dir: www/wp-content/uploads/agents/
-      #     local-dir: /tmp/to_upload/
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PWD }}
+          server-dir: www/wp-content/uploads/agents/
+          local-dir: /tmp/to_upload/
