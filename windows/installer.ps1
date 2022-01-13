@@ -48,4 +48,4 @@ Remove-Item C:\Windows\Temp\lightowl -Recurse
 .\telegraf.exe --service start
 
 schtasks.exe /create /tn LightOwl /XML "C:\Program Files\lightowl\task.xml"
-schtasks.exe /create /tn "LightOwl Packages" /XML "C:\Program Files\lightowl\task.xml"
+schtasks.exe /create /tn "LightOwl Packages" /XML "C:\Program Files\lightowl\task_packages.xml"
