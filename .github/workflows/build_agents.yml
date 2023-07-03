@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - "release-*"
-      - "windows_agent"
 
 jobs:
   build:
