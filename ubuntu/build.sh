@@ -9,7 +9,7 @@
 /bin/cp installer.sh /tmp/ubuntu/
 
 cd ../program
-env GOOS=linux GOARCH=amd64 go build -o /tmp/ubuntu/etc/lightowl/lightowl ./lightowl.go
+env GOOS=linux GOARCH=amd64 go build -o /tmp/ubuntu/etc/lightowl/lightowl ./lightowl-linux.go
 
 cd /tmp/ubuntu/
 chmod +x ./installer.sh
